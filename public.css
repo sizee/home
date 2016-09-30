@@ -18,7 +18,7 @@ body{
 	max-width:768px;
 	min-width:320px;
 	position:relative;
-	font-family:"Microsoft JhengHei Ui";
+	font-family:"Arial,Console,Verdana,Courier New";
 }
 /*header*/
 .public_header{
