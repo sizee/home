@@ -1,11 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #slider_wrap{
+            position:relative;
+            margin-left:100px;
+            height:43px;
+            width:410px;
+            background-color:lightblue;
+        }
+        #slider_back{
+            position:absolute;
+            top:0;
+            bottom:0;
+            margin:auto;
+            background-color:#ffe6be;
+            width:100%;
+            height:4px;
+            cursor:pointer;
+        }
+        #slider_front{
+            position:absolute;
+            top:0;
+            bottom:0;
+            margin:auto;
+            background-color:#fcc671;
+            height:4px;
+            width:0;
+            cursor:pointer;
+
+        }
+        #slider_button{
+            position:absolute;
+            top:0;
+            bottom:0;
+            margin:auto;
+            width:62px;
+            height:38px;
+            background:url("img/OrangeButton.png") no-repeat center center;
+            background-size:62px 38px;
+            cursor:pointer;
+
+        }
+        #slider_button img{
+            display:block;
+            width:100%;
+        }
+        #slider_add{
+            position:absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            margin:0;
+            width:10px;
+            height:10px;
+        }
+        #slider_del{
+            position:absolute;
+            top:0;
+            bottom:0;
+            right:0;
+            margin:0;
+
+            width:10px;
+            height:10px;
+        }
+    </style>
     <title>Document</title>
 </head>
 <body>
- <h3>hello every body </h3>
-<h1>sizee的主页</h1>
+<div id='slider_wrap'>
+    <div id='slider_back'>
+        <div id='slider_front'></div>
+        <div id="slider_button"></div>
+    </div>
+
+    <!-- 	<div id="slider_add">+</div>
+    <div id="slider-del">-</div> -->
+
+</div>
 </body>
+<script>
+    window.onload=function(){
+        var sli=new Slider();
+        sli.init('slider_button');
+    }
+    function Slider()
+    {
+        this.ele=null,
+                this.parent=null,
+                this.elePre=null;
+        this.eleLeft=0,
+                this.eleW;
+        this.eleTop;
+    }
+    Slider.prototype.init=function(id){
+        this.ele=document.getElementById(id);
+        this.elePre=document.getElementById('slider_front')
+        this.parent=document.getElementById('slider_wrap');
+        this.fnclick();
+        this.ParentfnClick();
+    }
+    Slider.prototype.fnclick=function(){
+        var This=this;
+        this.ele.onmousedown=function(e){
+            var E=e?e:window.event;
+            var Ex=E.clientX;
+            This.eleLeft=Ex-this.offsetLeft;
+            This.fnMoveX();
+            This.clearMouseDown();
+            return false;
+        }
+    }
+    Slider.prototype.fnMoveX=function(){
+        var This=this;
+        document.onmousemove=function(e){
+            var E=e?e:window.event;
+            This.eleW=E.clientX-This.eleLeft;
+            This.setWidth();
+        }
+    }
+    Slider.prototype.clearMouseDown=function(){
+        var This=this;
+        document.onmouseup=This.ele.onmouseup=function(){
+            document.onmousemove=null;
+            document.onmouseup=null;
+        }
+    }
+    Slider.prototype.setWidth=function(){
+        var ParentWidth=this.parent.offsetWidth;
+        var eleWidth=this.ele.offsetWidth;
+        var widthLength=ParentWidth-eleWidth;
+        if(this.eleW>widthLength)
+        {
+            this.eleW=widthLength;
+            this.ele.style.left=this.eleW+'px';
+            this.elePre.style.width=this.eleW+'px';
+        }
+        else if(this.eleW<0)
+        {
+            this.eleW=0;
+            this.ele.style.left=this.eleW+'px';
+            this.elePre.style.width=this.eleW+'px';
+        }
+        else
+        {
+            this.ele.style.left=this.eleW+'px';
+            this.elePre.style.width=this.eleW+'px';
+        }
+    }
+    Slider.prototype.ParentfnClick=function(){
+        var This=this;
+        this.parent.onmousedown=function(e){
+            var E=e?e:window.event;
+            console.info(E.clientX);
+            console.info(This.eleLeft);
+            This.eleW=E.clientX-This.parent.offsetLeft;
+            This.setWidth();
+            //return false;
+        }
+    }
+
+    // Slider.prototype.fnClick=function(){
+    // 	    var This=this;
+    // 		var Parent=this.ele.parentNode;
+    // 		Parent.onclick=function(e){
+    // 			This.setWidth();
+    // 		/*	var E=e?e:window.event;
+    // 			This.eleW=E.clientX-This.ele.offsetWidth/2;
+    // 			This.ele.style.left=This.eleW+'px';*/
+    // 		}
+    // }
+    /*function Slider()
+     {
+     this.ele;
+     this.xL;
+     this.yL;
+     this.leftL=0;
+     }
+     Slider.prototype.init=function(id){
+
+     this.ele=document.getElementById(id);
+     this.fnClick();
+     }
+     Slider.prototype.fnClick=function(){
+     var This=this;
+     this.ele.onmousedown=function(e){
+     var E=e?e:window.event;
+     This.xL=E.clientX-this.offsetLeft;
+     This.fnMove();
+     }
+     }
+     Slider.prototype.fnMove=function(){
+     var This=this;
+     this.ele.onmusemove=function(e){
+     var E=e?e:window.event;
+     var aa=E.clientX-This.xL;
+     alert(aa);
+     This.ele.style.left=aa+'px';
+     }
+     }*/
+</script>
 </html>
