@@ -6,12 +6,12 @@
 
 }
 .show_lastGame{
-    position:relative;
-    height:10.58vh;
-    width:100%;
-    border:1px solid #dad6d6;
-    text-align:center;
-    background-color:#fff;
+    position: relative;
+    height: 10.58vh;
+    width: 100%;
+    border: 1px solid #dad6d6;
+    text-align: center;
+    background-color: #fff;
 }
 
 .show_lastGame p{
