@@ -11,7 +11,6 @@
 }
 /*days-内容部分样式*/
 .public_body_days{
-    height: 89.5vh;
     margin-top: 9vh;
     padding: 1.5vw;
     max-width: 768px;
@@ -57,30 +56,45 @@
 }
 .day-content-nighttime,.day-content-daytime{
     margin-left: 13%;
+    position: relative;
 }
 /*月亮太阳图标伪类*/
-.day-content-daytime:before{
-    content:"";
+.day-content-img{
     position: absolute;
-    display: block;
-    left: 17px;
-    width: 0.6rem;
-    height:0.6rem;
-    border: 1px #c9c9c9 solid;
-    border-radius: 50%;
-    background: url("/image/daytime.png") 0.12rem 0.12rem no-repeat white ;
+    left: -21.5%;
+    z-index: 10;
+    width: 13%;
+    background: white;
+    /*border: 1px #c9c9c9 solid;*/
+    /*border-radius: 50%;*/
 }
-.day-content-nighttime:before{
-    content:"";
-    position: absolute;
-    display: block;
-    left: 17px;
-    width: 0.6rem;
-    height:0.6rem;
-    border: 1px #c9c9c9 solid;
-    border-radius: 50%;
-    background: url("/image/nighttime.png") 16px 12px no-repeat white ;
+.day-content-img img{
+    max-width: 100%;
+    display: inline-block;
+    text-align: center;
 }
+/*.day-content-daytime:before{*/
+    /*content:"";*/
+    /*position: absolute;*/
+    /*display: block;*/
+    /*left: 17px;*/
+    /*width: 0.6rem;*/
+    /*height:0.6rem;*/
+    /*border: 1px #c9c9c9 solid;*/
+    /*border-radius: 50%;*/
+    /*background: url("/image/daytime.png") 0.12rem 0.12rem no-repeat white ;*/
+/*}*/
+/*.day-content-nighttime:before{*/
+    /*content:"";*/
+    /*position: absolute;*/
+    /*display: block;*/
+    /*left: 17px;*/
+    /*width: 0.6rem;*/
+    /*height:0.6rem;*/
+    /*border: 1px #c9c9c9 solid;*/
+    /*border-radius: 50%;*/
+    /*background: url("/image/nighttime.png") 16px 12px no-repeat white ;*/
+/*}*/
 
 
 /*引导弹框*/

@@ -31,6 +31,9 @@
       "showWord":["role","card"],
       "time": ["daytime", "nighttime"],
       "daysGuide":[["discuss"],["vote"]],
+      "daysGuideObject":{
+        "nighttime":["vote"]
+      },
       "inputKillerNum":false,
       "canClickDaysGuide":[[],["vote"]],
       "lastGuide":"vote",
@@ -111,6 +114,9 @@
       "showWord":["role","card"],
       "time": ["daytime", "nighttime"],
       "daysGuide":[["discuss"],["vote"]],
+      "daysGuideObject":{
+        "nighttime":["vote"]
+      },
       "inputKillerNum":false,
       "canClickDaysGuide":[[],["vote"]],
       "lastGuide":"vote",
@@ -191,6 +197,9 @@
       "showWord":["role","card"],
       "time": ["daytime", "nighttime"],
       "daysGuide":[["discuss","electioneeringa"],["vote"]],
+      "daysGuideObject":{
+        "nighttime":["vote"]
+      },
       "inputKillerNum":true,
       "canClickDaysGuide":[[""],["vote"]],
       "lastGuide":"vote",
@@ -200,7 +209,7 @@
 
       },
       "daysGuideCanClick":{
-        "daytime":{
+        "discuss":{
           "canClick":false,
           "hitCount":0
         },
@@ -240,13 +249,11 @@
         }
       },
       "text": {
-        "nighttime":{
           "vote":{
             "top":"投票",
             "hint":"发言讨论结束，大家请投票",
             "action":"点击得票数最多的人的头像"
           }
-        }
       }
     },
     "21":{
@@ -277,6 +284,10 @@
       "showWord":["role"],
       "time": ["nighttime", "daytime"],
       "daysGuide":[["killer"],["ghost","player","vote"]],
+      "daysGuideObject":{
+        "nighttime":["killer"],
+        "daytime":["vote"]
+      },
       "inputKillerNum":false,
       "canClickDaysGuide":[["killer"],["vote"]],
       "lastGuide":"vote",
@@ -365,6 +376,10 @@
       "showWord":["role"],
       "time": ["nighttime", "daytime"],
       "daysGuide":[["killer","police"],["ghost","player","vote"]],
+      "daysGuideObject":{
+        "nighttime":["killer","police"],
+        "daytime":["vote"]
+      },
       "inputKillerNum":false,
       "canClickDaysGuide":[["killer","police"],["vote"]],
       "lastGuide":"vote",
@@ -405,7 +420,9 @@
           "killerDeath":"杀死",
           "policeDeath":"查看身份",
           "daytime":"白天",
-          "nighttime":"黑夜"
+          "nighttime":"黑夜",
+          "doctorCure":"治疗",
+          "doctorKiller":"杀死"
         },
         "daysGuide":{
           "killer":"杀手杀人",
@@ -438,7 +455,7 @@
 
       }
     },
-    "23":{
+     "23":{
       "title": "杀人游戏3.0",
       "versionId": "23",
       "role": ["killer", "police","sniper", "doctor","civilian"],
@@ -467,6 +484,10 @@
       "showWord":["role"],
       "time": ["nighttime", "daytime"],
       "daysGuide":[["killer", "police","sniper", "doctor"],["ghost","player","vote"]],
+      "daysGuideObject":{
+        "nighttime":["killer", "police","sniper", "doctor"],
+        "daytime":["vote"]
+      },
       "inputKillerNum":false,
       "canClickDaysGuide":[["killer", "police","sniper", "doctor"],["vote"]],
       "lastGuide":"vote",

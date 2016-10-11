@@ -1,6 +1,6 @@
-<div class="public_header">
-    <div class="public_header_leftMenu">
-        <img class="public_header_leftImg" src="../image/header/headerbar-back.png" alt="">
+<div class="public_header" id="header">
+    <div class="public_header_leftMenu" ui-sref="viewCard">
+        <img class="public_header_leftImg" src="../image/header/headerbar-back.png" alt="" >
     </div>
     <!-- 这里可以自己天加一个指令来动态控制 -->
     <span class="judgeView-title">法官日记</span>
@@ -20,7 +20,8 @@
             <p class="judgeView-Number" ng-bind="$index+1+'号'"></p>
         </li>
     </ul>
-    <div class="judgeView-footer">
-        <button type="button" class="judgeView-btn" ng-click="vm.start()">开始游戏</button>
-    </div>
 </div>
+<div class="judgeView-footer" id="footer">
+    <button type="button" class="judgeView-btn" ng-click="vm.start()">开始游戏</button>
+</div>
+<script src="js/setWidth.js"></script>

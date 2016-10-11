@@ -4,6 +4,13 @@
 angular.module('myApp').controller('daysCtrl', ["$state", "$scope", "gameService","publicFunction",
     function ($state, $scope, gameService,publicFunction) {
         var vm = this;
+
+        // 后方页面所需数据处理
+        vm.playerNum=JSON.parse(localStorage.playerNum);
+        vm.playerNum.vote=1;
+        localStorage.playerNum=JSON.stringify(vm.playerNum);
+        // END
+
         // 获取版本ID
         vm.versionId=$state.params.versionId;
         // 获取存活人数信息
@@ -17,6 +24,7 @@ angular.module('myApp').controller('daysCtrl', ["$state", "$scope", "gameService
             vm.version = res.data.data[vm.versionId];
         });
         // vm.nextTime=publicFunction.addNextDay;
+
         // 点击引导框
         vm.canJumpPage=function (guide,num,index,day) {
             // 判断当前引导框是否需要跳转

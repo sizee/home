@@ -1,5 +1,5 @@
-<div class="public_header">
-    <div class="public_header_leftMenu">
+<div id="header" class="public_header">
+    <div class="public_header_leftMenu" ui-sref="setting">
         <img class="public_header_leftImg" src="image/header/headerbar-back.png" alt="">
     </div>
     <!-- 这里可以自己天加一个指令来动态控制 -->
@@ -24,7 +24,8 @@
         <p ng-bind="vm.See_identity.guess" class="viewCard-guess"></p>
         <p ng-bind="vm.See_identity.prompt" class="viewCard-prompt"></p>
     </div>
-    <div class="viewCard-footer">
+    <div id="footer" class="viewCard-footer">
         <button type="button" class="viewCard-btn" ng-click="vm.ClickView()" ng-bind="vm.See_identity.Btn " ></button>
     </div>
 </div>
+<script src="js/setWidth.js"></script>

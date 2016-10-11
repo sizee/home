@@ -29,16 +29,39 @@ angular.module('myApp').controller('gameTimeCtrl',
         // 获取查询存活状态方法
         vm.inquireStatus=publicFunction.inquireStatus;
 
-        // 判断当前点击选择的玩家
+        // 改变当前点击选择的玩家
         vm.selectPlayer=function (index) {
             vm.currentSelectPlayer=index;
         };
 
         // 判断是否为最后一项，是的话添加下一天
-        var isLastGuide=function () {
+        var isLastGuide=function (res) {
             if(vm.role==vm.version.lastGuide){
-                publicFunction.addNextDay(vm.days,vm.guideHitCount,vm.version)
-            }else{}
+                publicFunction.addNextDay(vm.days,vm.guideHitCount,vm.version);
+            }else{
+            }
+        };
+        // 新添加功能待模块化
+        // 判断最后一引导栏是否死亡，是的话判断当前框是否为倒数
+        var canChangePlayerNum=function (res) {
+
+              for (var x=(vm.version.daysGuideObject[vm.time].length);x>=0;x--){
+                  console.log(x);
+                  console.log(vm.playerNum[vm.version.daysGuideObject[vm.time][x-1]] == 0);
+                  console.log(vm.version.daysGuideObject[vm.time][x-1] != vm.role);
+                  if(vm.playerNum[vm.version.daysGuideObject[vm.time][x-1]]!=0&&vm.version.daysGuideObject[vm.time][x-1]!=vm.role){
+                      break
+                  }else if(vm.playerNum[vm.version.daysGuideObject[vm.time][x-1]]==0&&vm.version.daysGuideObject[vm.time][x-1]!=vm.role){
+                      continue
+                  }else if(vm.playerNum[vm.version.daysGuideObject[vm.time][x-1]]!=0&&vm.version.daysGuideObject[vm.time][x-1]==vm.role){
+                      for(var i in vm.days[vm.days.length-1].time[vm.time]){
+                          console.log(i);
+                          vm.playerNum[vm.days[vm.days.length-1].time[vm.time][i].deathRole]=vm.playerNum[vm.days[vm.days.length-1].time[vm.time][i].deathRole]+vm.days[vm.days.length-1].time[vm.time][i].selectPlayerChange;
+                          localStorage.playerNum=JSON.stringify(vm.playerNum)
+                      }
+                      break
+                  }
+              }
         };
         // 小图标显示隐藏
         vm.show=publicFunction.show;
@@ -46,27 +69,20 @@ angular.module('myApp').controller('gameTimeCtrl',
         // vm.confirm=publicFunction.confirm;
         vm.confirm=function () {
             // 调用角色函数
-            var res=roleClick[vm.versionId][vm.role](vm.currentSelectPlayer,vm.playerList,vm.days,vm.killerNum,vm.playerNum);
-            if (res==1){
+            var res=roleClick[vm.versionId][vm.role](vm.currentSelectPlayer,vm.playerList,vm.days,vm.killerNum,vm.role,vm.playerNum);
+            if (res.canJumpNext){
                 // 捉鬼游戏被杀者死亡时OR正常游戏版本时返回值
-                // 添加游戏Log
-                publicFunction.addLog(vm.time,vm.days,vm.guideHitCount,vm.role,vm.currentSelectPlayer,vm.playerList);
 
+                publicFunction.updatePlayerList(vm.playerList,res);
+                // 添加游戏Log
+                publicFunction.addLog(vm.time,vm.days,vm.guideHitCount,res,vm.playerList);
+                // 判断是否为最后一个
+                canChangePlayerNum(res);
                 // 判断是否为最后一项，是的话添加下一天
-                isLastGuide();
+                isLastGuide(res);
                 // 跳转页面
                 $state.go("days",{versionId:vm.versionId})
-            }else if(res==2){
-                // 捉鬼游戏杀人者死亡时
-                // 添加游戏Log
-                publicFunction.addLog(vm.time,vm.days,vm.guideHitCount,vm.role,(--vm.killerNum),vm.playerList);
-
-                // 判断是否为最后一项，是的话添加下一天
-                isLastGuide();
-
-                // 跳转页面
-                $state.go("days",{versionId:vm.versionId})
-            }else if(res==0){}
+            }else if(res.canJumpNext){}
         };
 
     }]);

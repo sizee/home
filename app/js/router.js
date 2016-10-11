@@ -25,7 +25,8 @@ function projectRouteConfig($stateProvider, $urlRouterProvider, $ocLazyLoadProvi
             resolve: {
                 loadMyFile: _lazyLoad([
                     'css/cold-start-page.css',
-                    'js/controllers/coldStartCtrl.js'
+                    'js/controllers/coldStartCtrl.js',
+                    'js/setWidth.js'
                 ])
             }
         })

@@ -29,6 +29,8 @@ angular.module('myApp').factory('gameService', function ($http, $state) {
                     CardDisplay.prompt = "想办法猜到人的词，同时还要注意不要暴露自己哦！";
                 }else {
                     $(".viewCard-guess").css("display","none");
+                    CardDisplay.prompt="";
+                    CardDisplay.guess = "";
                 }
                 CardDisplay.num = GameObject[StateValue].num;
                 CardDisplay.logo = "image/spirit-card-front.png";
@@ -41,6 +43,7 @@ angular.module('myApp').factory('gameService', function ($http, $state) {
                     CardDisplay.Card = "CardBack";
                     CardDisplay.StateValue = StateValue + 1;
                 } else {
+                    $(".viewCard-block").css("height","6.56rem");
                     CardDisplay.Btn = "隐藏并传递给" + (CardDisplay.num + 1) + "号";
                     CardDisplay.StateValue = StateValue + 1;
                     CardDisplay.Card = "CardBack";
@@ -60,6 +63,8 @@ angular.module('myApp').factory('gameService', function ($http, $state) {
                 CardDisplay.Btn = "查看" + CardDisplay.num + "号身份";       //按钮
                 CardDisplay.StateValue = StateValue;
                 CardDisplay.Card = "CardFront";
+                CardDisplay.guess = "";
+                CardDisplay.role = "";
                 return CardDisplay;
             }
         },
