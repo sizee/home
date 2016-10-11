@@ -1,0 +1,50 @@
+.judgeView-content{
+    overflow: hidden;
+    background: #29bde0;
+    height: 88vh;
+    margin-top: 8vh;
+    overflow-y: auto;
+}
+.judgeView-block{
+    margin-top: 0.63rem ;
+    padding: 0 0.44rem;
+}
+.judgeView-box{
+    margin:0 0.2rem 0.73rem 0.2rem;
+    display: inline-block;
+    width: 1.38rem;
+    border: solid 0.05rem #fff;
+    text-align: center;
+}
+.judgeView-Role{
+    font-size: 0.3rem;
+    line-height: 0.99rem;
+    background: #f5c97b;
+}
+.judgeView-title{
+    font-size: 0.4rem;
+}
+.judgeView-Number{
+    line-height: 0.27rem;
+    background: #83b09a;
+    font-size: 0.22rem;
+    color: #fff;
+}
+.judgeView-footer{
+    position: fixed;
+    bottom: 0;
+    max-width: 7.68rem;
+    width: 100%;
+    border-top: 0.03rem solid #fff;
+    text-align: center;
+    background: #29bde0;
+    height: 1.7rem;
+}
+.judgeView-btn{
+    margin-top: 0.5rem;
+    color: #FFF;
+    width: 4.9rem;
+    background: #fbb435;
+    font-size: 0.4rem;
+    height: 0.9rem;
+}
