@@ -30,7 +30,7 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
                  },
                  redirectTo: 'person.home'
              })
-
+        //主页home
             .state('person.home',{
                 url:'/home',
                 views:{
