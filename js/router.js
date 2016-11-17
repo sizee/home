@@ -15,11 +15,11 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
         debug:false,
         events:true
     });
-    $urlRouterProvider.otherwise('/myhome');
+    $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('person',{
                  url:"",
-                 templateUrl:'home/views/main.html',
+                 templateUrl:'/home/views/main.html',
                  controller:"mainCtrl",
                  resolve:{
                      load:_lazyLoad([
@@ -32,17 +32,17 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
              })
         //主页home
             .state('person.home',{
-                url:'/myhome',
+                url:'/home',
                 views:{
                     "":{
-                        templateUrl:'home/views/home.html',
+                        templateUrl:'/home/views/home.html',
                         controller:"homeCtrl as vm"
                     }
                 },
                 resolve:{
                     load:_lazyLoad([
-                        'home/style/main.css',
-                        'home/js/controller/homeCtrl.js'
+                        '/home/style/main.css',
+                        '/home/js/controller/homeCtrl.js'
                     ])
                 }
             })
