@@ -15,7 +15,7 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
         debug:false,
         events:true
     });
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/myhome');
     $stateProvider
         .state('person',{
                  url:"",
@@ -32,7 +32,7 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
              })
         //主页home
             .state('person.home',{
-                url:'/home',
+                url:'/myhome',
                 views:{
                     "":{
                         templateUrl:'home/views/home.html',
