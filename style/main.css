@@ -1,0 +1,11 @@
+header{
+    overflow:hidden;
+}
+.top-note,.nav-bar{
+    float:right;
+}
+.top-note li,
+.nav-bar li{
+    display:inline-block;
+    cursor:pointer;
+}

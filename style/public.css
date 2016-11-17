@@ -1,0 +1,12 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{list-style-type:None;}
+a{text-decoration:none;}
+
+body{
+    width:1200px;
+    margin:0 auto;
+    background-color:palegoldenrod;
+}

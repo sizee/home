@@ -1,0 +1,21 @@
+<header>
+   <div id="scroll"></div>
+    <div class="container">
+        <div class="top-note">
+            <ul >
+                <li class="top-login" ng-click="vm.login()">登陆</li>
+                <li class="top-logon" ng-click="vm.logon()">注册</li>
+            </ul>
+        </div>
+{{vm.data}}
+    </div>
+    <div class="nav-bar">
+        <ul>
+            <li ui-sref="person.homePage">个人主页</li>
+            <li ui-sref="person.note">个人笔记</li>
+            <li ui-sref="person.recommend">个人推荐</li>
+            <li ui-sref="person.shall">讨论/分享</li>
+        </ul>
+    </div>
+</header>
+<div ui-view></div>
