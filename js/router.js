@@ -19,13 +19,13 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
     $stateProvider
         .state('person',{
                  url:"",
-                 templateUrl:'/home/views/main.html',
+                 templateUrl:'views/main.html',
                  controller:"mainCtrl",
                  resolve:{
                      load:_lazyLoad([
-                         'home/style/main.css',
-                         'home/style/public.css',
-                         'home/js/controller/main.js'
+                         'style/main.css',
+                         'style/public.css',
+                         'js/controller/main.js'
                      ])
                  },
                  redirectTo: 'person.home'
@@ -35,14 +35,14 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
                 url:'/home',
                 views:{
                     "":{
-                        templateUrl:'/home/views/home.html',
+                        templateUrl:'views/home.html',
                         controller:"homeCtrl as vm"
                     }
                 },
                 resolve:{
                     load:_lazyLoad([
-                        '/home/style/main.css',
-                        '/home/js/controller/homeCtrl.js'
+                        'style/main.css',
+                        'js/controller/homeCtrl.js'
                     ])
                 }
             })
@@ -51,14 +51,14 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
             url:'/note',
             views: {
                 "": {
-                    templateUrl: 'home/views/note.html',
+                    templateUrl: 'views/note.html',
                     controller: 'noteCtrl as vm'
                 }
             },
             resolve:{
                 load:_lazyLoad([
-                    'home/style/node.css',
-                    'home/js/controller/noteCtrl.js'
+                    'style/node.css',
+                    'js/controller/noteCtrl.js'
                 ])
             }
         })
@@ -67,16 +67,16 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
             url:'/recommend',
             views: {
                 "": {
-                    templateUrl: 'home/views/recommend.html',
+                    templateUrl: 'views/recommend.html',
                     controller: 'recommendCtrl as vm'
                 }
             },
-            templateUrl:'home/views/recommend.html',
+            templateUrl:'views/recommend.html',
             controller:'recommendCtrl as vm',
             resolve:{
                 load:_lazyLoad([
-                    'home/style/recommend.css',
-                    'home/js/controller/recommendCtrl.js'
+                    'style/recommend.css',
+                    'js/controller/recommendCtrl.js'
                 ])
             }
         })
@@ -85,14 +85,14 @@ var app=angular.module('myApp',['oc.lazyLoad','ui.router','ngAnimate']);
             url:'/shall',
             views:{
                 "":{
-                    templateUrl:'home/views/shall.html',
+                    templateUrl:'views/shall.html',
                     controller:'shallCtrl as vm'
                 }
             },
             resolve:{
                 load:_lazyLoad([
-                    'home/style/shall.css',
-                    'home/js/controller/shallCtrl.js'
+                    'style/shall.css',
+                    'js/controller/shallCtrl.js'
                 ])
             }
 
